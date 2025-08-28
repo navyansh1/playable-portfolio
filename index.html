@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navy's Playable Ads</title>
+    <link rel="shortcut icon" href="lol.jpeg" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
+      
+      /* Reset and base styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      html {
+        overflow-x: hidden;
+        width: 100%;
+      }
+      
+      /* Base Styles */
+      body,
+      header,
+      main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      header {
+        margin-top: 15vh;
+      }
+      
+      body {
+        font-family: "Poppins", sans-serif;
+        color: white;
+        background: linear-gradient(45deg, #d09530, #164284, #a0522d, #0a305c, #d09530);
+        background-size: 400% 400%;
+        animation: gradientBackground 8s ease infinite;
+        margin: 0;
+        min-height: 100vh;
+        height: 100vh;
+        justify-content: center;
+        gap: 20px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        position: relative;
+        width: 100%;
+        max-width: 100vw;
+      }
+      
+      @keyframes gradientBackground {
+        0% { background-position: 0% 50% }
+        50% { background-position: 100% 50% }
+        100% { background-position: 0% 50% }
+      }
+      
+      figure {
+        overflow: hidden;
+        width: 160px;
+        height: 160px;
+        border-radius: 20%;
+        margin-bottom: 15px;
+        position: relative;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        animation: profilePulse 3s infinite ease-in-out;
+      }
+      
+      /* Moving Background Elements */
+      .bg-shape {
+        position: fixed;
+        border-radius: 50%;
+        filter: blur(60px);
+        opacity: 0.5;
+        z-index: 0;
+        will-change: transform;
+      }
+      
+      .bg-shape-1 {
+        width: 250px;
+        height: 250px;
+        background: rgba(208, 149, 48, 0.5);
+        top: 10%;
+        left: 10%;
+        animation: floatShape 25s infinite alternate ease-in-out;
+      }
+      
+      .bg-shape-2 {
+        width: 200px;
+        height: 200px;
+        background: rgba(22, 66, 132, 0.6);
+        bottom: 20%;
+        right: 5%;
+        animation: floatShape 18s infinite alternate-reverse ease-in-out;
+      }
+      
+      .bg-shape-3 {
+        width: 150px;
+        height: 150px;
+        background: rgba(160, 82, 45, 0.4);
+        bottom: 30%;
+        left: 5%;
+        animation: floatShape 22s infinite alternate ease-in-out;
+      }
+      
+      @keyframes floatShape {
+        0% {
+          transform: translate(0, 0) scale(1);
+        }
+        50% {
+          transform: translate(30px, 20px) scale(1.1);
+        }
+        100% {
+          transform: translate(15px, 40px) scale(0.9);
+        }
+      }
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale(2.2);
+      }
+      
+      h1 {
+        margin: 0;
+        font-size: 20px;
+        animation: fadeInDown 1s ease;
+      }
+      
+      h2 {
+        font-size: 16px;
+        margin: 0 0 5px 0;
+        font-weight: 400;
+        animation: fadeInUp 1s ease;
+      }
+      
+      main {
+        gap: 20px;
+        width: 100%;
+        max-width: 100vw;
+        position: relative;
+        z-index: 10;
+        padding: 0 20px;
+      }
+      
+      /* Button Styles with Shimmer Effect */
+      button {
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        font-size: 14px;
+        width: 250px;
+        max-width: calc(100vw - 40px);
+        height: 45px;
+        background-color: #ffffff;
+        color: #333;
+        border: none;
+        border-radius: 35px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        transform-style: preserve-3d;
+        transform: translateZ(0);
+      }
+      
+      /* Enhanced Shimmer Effect */
+      button::before {
+        content: '';
+        position: absolute;
+        top: -100%;
+        left: -100%;
+        width: 300%;
+        height: 300%;
+        background: linear-gradient(45deg, 
+          transparent, 
+          rgba(255, 255, 255, 0.05), 
+          rgba(255, 255, 255, 0.4),
+          rgba(255, 255, 255, 0.8),
+          rgba(255, 255, 255, 0.4), 
+          rgba(255, 255, 255, 0.05),
+          transparent);
+        transform: rotate(45deg);
+        pointer-events: none;
+        z-index: 1;
+        animation: shimmer 2s infinite linear;
+      }
+      
+      @keyframes shimmer {
+        0% { transform: translateX(-100%) rotate(45deg); }
+        100% { transform: translateX(100%) rotate(45deg); }
+      }
+      
+      button:hover {
+        cursor: pointer;
+        background-color: #ffffff00;
+        border: 1px solid white;
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+      
+      button:active {
+        transform: translateY(-1px);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      }
+      
+      footer p {
+        font-size: 12px;
+        position: relative;
+        z-index: 10;
+      }
+      
+      /* Floating particles */
+      .particles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+      }
+      
+      .particle {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.4);
+        animation: float 15s infinite linear;
+        z-index: 1;
+      }
+      
+      @keyframes float {
+        0% { transform: translateY(100vh) rotate(0deg); opacity: 0.85; }
+        50% { opacity: 1; transform: scale(1.1); }
+        100% { transform: translateY(-20vh) rotate(360deg); opacity: 0.85; }
+      }
+      
+      /* Animation keyframes */
+      @keyframes fadeInDown {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      
+      @keyframes bounceIn {
+        0%, 20%, 40%, 60%, 80%, 100% { transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000); }
+        0% { opacity: 0; transform: scale3d(.3, .3, .3); }
+        20% { transform: scale3d(1.1, 1.1, 1.1); }
+        40% { transform: scale3d(.9, .9, .9); }
+        60% { opacity: 1; transform: scale3d(1.03, 1.03, 1.03); }
+        80% { transform: scale3d(.97, .97, .97); }
+        100% { opacity: 1; transform: scale3d(1, 1, 1); }
+      }
+      
+      /* Button animations */
+      a:nth-child(1) button { animation: bounceIn 1s ease 0.1s both; }
+      a:nth-child(2) button { animation: bounceIn 1s ease 0.2s both; }
+      a:nth-child(3) button { animation: bounceIn 1s ease 0.3s both; }
+      a:nth-child(4) button { animation: bounceIn 1s ease 0.4s both; }
+      
+      @keyframes profilePulse {
+        0% { box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); }
+        50% { box-shadow: 0 8px 30px rgba(208, 149, 48, 0.6); }
+        100% { box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); }
+      }
+      
+      @media (max-width: 600px) {
+        body {
+          gap: 15px;
+          justify-content: flex-start;
+          padding: 0 10px 20px 10px;
+          overflow-x: hidden;
+          height: auto;
+          min-height: 100vh;
+        }
+        
+        main {
+          gap: 15px;
+          padding: 0 10px;
+          width: 100%;
+        }
+        
+        figure {
+          width: 140px;
+          height: 140px;
+        }
+        
+        img {
+          transform: scale(1.7);
+        }
+        
+        h1 {
+          font-size: 18px;
+          text-align: center;
+        }
+        
+        h2 {
+          font-size: 14px;
+          text-align: center;
+          padding: 0 10px;
+        }
+        
+        button {
+          width: 250px;
+          max-width: calc(100vw - 40px);
+          font-size: 13px;
+          height: 40px;
+        }
+        
+        .bg-shape-1 {
+          width: 150px;
+          height: 150px;
+        }
+        
+        .bg-shape-2 {
+          width: 120px;
+          height: 120px;
+        }
+        
+        .bg-shape-3 {
+          width: 100px;
+          height: 100px;
+        }
+        
+        @keyframes floatShape {
+          0% {
+            transform: translate(0, 0) scale(1);
+          }
+          50% {
+            transform: translate(15px, 10px) scale(1.05);
+          }
+          100% {
+            transform: translate(8px, 20px) scale(0.95);
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Background animated shapes -->
+    <div class="bg-shape bg-shape-1"></div>
+    <div class="bg-shape bg-shape-2"></div>
+    <div class="bg-shape bg-shape-3"></div>
+    
+    <!-- Floating particles background -->
+    <div class="particles" id="particles"></div>
+    
+    <header class="animate__animated animate__fadeIn">
+      <figure>
+        <img src="lol.jpeg" alt="Navyansh Kothari" />
+      </figure>
+      <h1 class="animate__animated animate__fadeInDown">Navyansh Kothari</h1>
+      <h2 class="animate__animated animate__fadeInUp">HTML5 Game Dev & Playable Ads Creator</h2>
+    </header>
+    
+    <main>
+      <a href="https://navyansh1.github.io/pvp-playable/" target="_blank">
+        <button>PvP Cricket Playable 🏏 </button>
+      </a>
+      <a href="https://navyansh1.github.io/teambuild-half-playable/" target="_blank">
+        <button>Build Your Team Playable ⚡ </button>
+      </a>
+      <a href="https://navyansh1.github.io/aus-eng-timer/" target="_blank">
+        <button>Aus vs Eng with Timer ⏱️</button>
+      </a>
+      <a href="https://navyansh1.github.io/SuperPower-Cricket/" target="_blank">
+        <button>Cricket Special Powers 💥 </button>
+      </a>
+    </main>
+    
+    <footer>
+      <p class="animate__animated animate__fadeIn animate__delay-1s">&copy; 2024 <a href="https://navygeeks.in" target="_blank" style="color: white; text-decoration: none;">NavyGeeks.in</a>. All Rights Reserved.</p>
+    </footer>
+    
+    <script>
+      // Create floating particles/bubbles
+      function createParticles() {
+        const particlesContainer = document.getElementById('particles');
+        const particleCount = 50;
+        
+        for (let i = 0; i < particleCount; i++) {
+          const particle = document.createElement('div');
+          particle.classList.add('particle');
+          
+          // Random size
+          const size = Math.random() * 35 + 10;
+          particle.style.width = `${size}px`;
+          particle.style.height = `${size}px`;
+          
+          // Random position
+          const posX = Math.random() * 100;
+          const posY = Math.random() * 100 + 100;
+          particle.style.left = `${posX}%`;
+          particle.style.bottom = `${-posY}%`;
+          
+          // Higher baseline opacity
+          particle.style.opacity = Math.random() * 0.5 + 0.5;
+          
+          // Gold or blue tinted bubbles to match the background
+          if (Math.random() > 0.5) {
+            particle.style.background = 'rgba(208, 149, 48, 0.6)';
+            particle.style.boxShadow = '0 0 15px rgba(208, 149, 48, 0.8), 0 0 30px rgba(208, 149, 48, 0.4)';
+          } else {
+            particle.style.background = 'rgba(22, 66, 132, 0.6)';
+            particle.style.boxShadow = '0 0 15px rgba(22, 66, 132, 0.8), 0 0 30px rgba(22, 66, 132, 0.4)';
+          }
+          
+          // Some particles are white for added contrast
+          if (Math.random() > 0.8) {
+            particle.style.background = 'rgba(255, 255, 255, 0.8)';
+            particle.style.boxShadow = '0 0 20px rgba(255, 255, 255, 0.9), 0 0 40px rgba(255, 255, 255, 0.5)';
+          }
+          
+          // Animation durations
+          const duration = Math.random() * 15 + 10;
+          particle.style.animationDuration = `${duration}s`;
+          
+          const delay = Math.random() * 5;
+          particle.style.animationDelay = `${delay}s`;
+          
+          particlesContainer.appendChild(particle);
+        }
+      }
+      
+      // Initialize particles when page loads
+      document.addEventListener('DOMContentLoaded', () => {
+        createParticles();
+        
+        // Add hover animation for buttons
+        document.querySelectorAll('button').forEach(button => {
+          button.addEventListener('mouseenter', function() {
+            this.classList.add('animate__animated', 'animate__pulse');
+          });
+          
+          button.addEventListener('mouseleave', function() {
+            this.classList.remove('animate__animated', 'animate__pulse');
+          });
+          
+          // Add click animation
+          button.addEventListener('click', function() {
+            this.classList.add('animate__animated', 'animate__fadeOutUp');
+            setTimeout(() => {
+              this.classList.remove('animate__animated', 'animate__fadeOutUp');
+            }, 500);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
+

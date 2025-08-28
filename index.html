@@ -29,7 +29,73 @@
         flex-direction: column;
         align-items: center;
       }
-      
+
+      .content-wrapper {
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+        width: 100%;
+        max-width: 900px;
+        padding: 20px;
+        margin: 0 auto;
+      }
+
+      .buttons-container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        min-width: 250px;
+      }
+
+      .buttons-container a {
+        text-decoration: none;
+      }
+
+      .section-title {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+        color: #ffffff;
+        font-weight: 500;
+        text-align: left;
+        width: 100%;
+        animation: fadeInDown 1s ease;
+      }
+
+      .achievements {
+        flex: 1;
+      }
+
+      .achievements ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .achievements li {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 15px 20px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+        animation: fadeInRight 1s ease;
+        transition: transform 0.3s ease, background 0.3s ease;
+      }
+
+      .achievements li:hover {
+        transform: translateX(5px);
+        background: rgba(255, 255, 255, 0.15);
+      }
+
+      @keyframes fadeInRight {
+        from {
+          opacity: 0;
+          transform: translateX(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
       header {
         margin-top: 15vh;
       }
@@ -292,7 +358,45 @@
           padding: 0 10px;
           width: 100%;
         }
+
+        .content-wrapper {
+          flex-direction: column-reverse;
+          padding: 10px;
+          gap: 20px;
+          align-items: center;
+        }
+
+        .buttons-container {
+          display: flex;
+          align-items: center;
+          width: 100%;
+        }
+
+        .section-title {
+          text-align: center;
+          margin-bottom: 15px;
+        }
+
+        .buttons-container a {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+        }
+
+        .achievements {
+          margin-bottom: 20px;
+        }
+
+        .achievements li {
+          font-size: 14px;
+          padding: 12px 15px;
+          margin-bottom: 10px;
+        }
         
+        header {
+          margin-top: 8vh;
+        }
+
         figure {
           width: 140px;
           height: 140px;
@@ -367,18 +471,30 @@
     </header>
     
     <main>
-      <a href="https://navyansh1.github.io/pvp-playable/" target="_blank">
-        <button>PvP Cricket Playable 🏏 </button>
-      </a>
-      <a href="https://navyansh1.github.io/teambuild-half-playable/" target="_blank">
-        <button>Build Your Team Playable ⚡ </button>
-      </a>
-      <a href="https://navyansh1.github.io/aus-eng-timer/" target="_blank">
-        <button>Aus vs Eng with Timer ⏱️</button>
-      </a>
-      <a href="https://navyansh1.github.io/SuperPower-Cricket/" target="_blank">
-        <button>Cricket Special Powers 💥 </button>
-      </a>
+      <div class="content-wrapper">
+        <div class="buttons-container">
+          <h3 class="section-title">Some of My Works:</h3>
+          <a href="https://navyansh1.github.io/pvp-playable/" target="_blank">
+            <button>PvP Cricket Playable 🏏 </button>
+          </a>
+          <a href="https://navyansh1.github.io/teambuild-half-playable/" target="_blank">
+            <button>Build Your Team Playable ⚡ </button>
+          </a>
+          <a href="https://navyansh1.github.io/aus-eng-timer/" target="_blank">
+            <button>Aus vs Eng with Timer ⏱️</button>
+          </a>
+          <a href="https://navyansh1.github.io/SuperPower-Cricket/" target="_blank">
+            <button>Cricket Special Powers 💥 </button>
+          </a>
+        </div>
+        <div class="achievements">
+          <ul>
+            <li>Built and optimized interactive HTML5 playables (cricket-themed) for mobile ad campaigns on Unity Ads, AppLovin, and Google Ads.</li>
+            <li>Managed end-to-end pipeline: design, video editing, compression, encoding, compliance, and deployment.</li>
+            <li>Campaigns delivered 7M+ impressions, 40K+ installs, with competitive CPI ($0.20–0.25).</li>
+          </ul>
+        </div>
+      </div>
     </main>
     
     <footer>
